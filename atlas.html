@@ -16,8 +16,6 @@
             --secondary: #ff6b35;
             --accent: #00d9ff;
             --success: #2ecc71;
-            --warning: #f39c12;
-            --danger: #e74c3c;
             --text-primary: #ffffff;
             --text-secondary: #b0b8c1;
             --card-bg: #242d48;
@@ -28,12 +26,10 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, var(--primary) 0%, #0f1419 100%);
             color: var(--text-primary);
-            overflow: hidden;
             height: 100vh;
-            position: relative;
+            overflow: hidden;
         }
 
-        /* Animated background */
         body::before {
             content: '';
             position: fixed;
@@ -50,12 +46,8 @@
         }
 
         @keyframes gradientShift {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.7;
-            }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
         }
 
         .container {
@@ -64,13 +56,10 @@
             display: flex;
             flex-direction: column;
             height: 100vh;
-            max-width: 800px;
-            margin: 0 auto;
             padding: 20px;
             gap: 20px;
         }
 
-        /* Header */
         .header {
             text-align: center;
             padding: 20px 0;
@@ -98,7 +87,6 @@
             background-clip: text;
             margin-bottom: 8px;
             letter-spacing: 3px;
-            text-transform: uppercase;
         }
 
         .tagline {
@@ -108,7 +96,6 @@
             text-transform: uppercase;
         }
 
-        /* Chat Container */
         .chat-container {
             flex: 1;
             overflow-y: auto;
@@ -119,15 +106,10 @@
             background: rgba(31, 38, 65, 0.4);
             border-radius: 12px;
             border: 1px solid rgba(0, 217, 255, 0.2);
-            scroll-behavior: smooth;
         }
 
         .chat-container::-webkit-scrollbar {
             width: 6px;
-        }
-
-        .chat-container::-webkit-scrollbar-track {
-            background: transparent;
         }
 
         .chat-container::-webkit-scrollbar-thumb {
@@ -200,13 +182,8 @@
             animation: typing 1.4s infinite;
         }
 
-        .typing-dot:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .typing-dot:nth-child(3) {
-            animation-delay: 0.4s;
-        }
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
 
         @keyframes typing {
             0%, 60%, 100% {
@@ -237,15 +214,10 @@
         }
 
         @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
 
-        /* Voice Input Controls */
         .voice-controls {
             display: flex;
             gap: 12px;
@@ -298,14 +270,9 @@
             left: 0;
         }
 
-        .mic-button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
         .mic-button.recording {
-            background: var(--danger);
-            border-color: var(--danger);
+            background: #e74c3c;
+            border-color: #e74c3c;
             color: white;
             animation: pulse 1s infinite;
         }
@@ -345,7 +312,6 @@
             box-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
         }
 
-        /* Status Indicator */
         .status {
             display: flex;
             align-items: center;
@@ -370,20 +336,10 @@
         }
 
         @keyframes blink {
-            0%, 50%, 100% {
-                opacity: 1;
-            }
-            25%, 75% {
-                opacity: 0.3;
-            }
+            0%, 50%, 100% { opacity: 1; }
+            25%, 75% { opacity: 0.3; }
         }
 
-        /* Hidden Elements */
-        input[type="file"] {
-            display: none;
-        }
-
-        /* Responsive */
         @media (max-width: 600px) {
             .container {
                 padding: 12px;
@@ -397,12 +353,10 @@
             .message-content {
                 max-width: 85%;
                 font-size: 13px;
-                padding: 10px 12px;
             }
 
             .voice-controls {
                 flex-direction: column;
-                padding: 16px;
             }
 
             .mic-button {
@@ -417,79 +371,22 @@
             .icon-button {
                 flex: 1;
                 width: 100%;
-                height: 44px;
-                border-radius: 6px;
-            }
-        }
-
-        /* Loading Animation */
-        .loader {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(0, 217, 255, 0.3);
-            border-radius: 50%;
-            border-top-color: var(--accent);
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Copy Feedback */
-        .copy-feedback {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--success);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            animation: slideInRight 0.3s ease, slideOutRight 0.3s ease 2.7s;
-            z-index: 999;
-        }
-
-        @keyframes slideInRight {
-            from {
-                transform: translateX(400px);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideOutRight {
-            from {
-                transform: translateX(0);
-                opacity: 1;
-            }
-            to {
-                transform: translateX(400px);
-                opacity: 0;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
         <div class="header">
             <div class="logo">⚔️ ATLAS</div>
             <div class="tagline">Advanced Titan Learning & Advisory System</div>
         </div>
 
-        <!-- Status -->
         <div class="status">
             <span class="status-dot"></span>
             System Ready - Voice Input Active
         </div>
 
-        <!-- Chat Messages -->
         <div class="chat-container" id="chatContainer">
             <div class="empty-state">
                 <div class="empty-state-icon">🎤</div>
@@ -500,7 +397,6 @@
             </div>
         </div>
 
-        <!-- Voice Controls -->
         <div class="voice-controls">
             <button class="mic-button" id="micButton">
                 <span id="micIcon">🎤</span>
@@ -514,26 +410,17 @@
     </div>
 
     <script>
-        // ============================================
-        // ATLAS - Voice AI Agent System
-        // ============================================
-
         class ATLAS {
             constructor() {
                 this.isRecording = false;
-                this.mediaRecorder = null;
-                this.audioChunks = [];
                 this.recognition = null;
                 this.chatHistory = [];
-                this.isSpeaking = false;
-                this.apiKey = localStorage.getItem('atlasApiKey') || '';
                 
                 this.init();
                 this.loadChatHistory();
             }
 
             init() {
-                // Set up elements
                 this.micButton = document.getElementById('micButton');
                 this.clearButton = document.getElementById('clearButton');
                 this.settingsButton = document.getElementById('settingsButton');
@@ -541,12 +428,10 @@
                 this.micIcon = document.getElementById('micIcon');
                 this.micText = document.getElementById('micText');
 
-                // Event listeners
                 this.micButton.addEventListener('click', () => this.toggleRecording());
                 this.clearButton.addEventListener('click', () => this.clearChat());
                 this.settingsButton.addEventListener('click', () => this.openSettings());
 
-                // Setup Web Speech API
                 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
                 if (SpeechRecognition) {
                     this.recognition = new SpeechRecognition();
@@ -554,43 +439,30 @@
                     this.recognition.interimResults = true;
                     this.recognition.lang = 'en-US';
 
-                    this.recognition.onstart = () => {
-                        this.updateMicButton(true);
-                    };
-
+                    this.recognition.onstart = () => this.updateMicButton(true);
                     this.recognition.onresult = (event) => {
-                        let interimTranscript = '';
                         for (let i = event.resultIndex; i < event.results.length; i++) {
-                            const transcript = event.results[i].transcript;
                             if (event.results[i].isFinal) {
-                                this.handleUserInput(transcript);
-                            } else {
-                                interimTranscript += transcript;
+                                this.handleUserInput(event.results[i].transcript);
                             }
                         }
                     };
-
-                    this.recognition.onend = () => {
-                        this.updateMicButton(false);
-                    };
-
+                    this.recognition.onend = () => this.updateMicButton(false);
                     this.recognition.onerror = (event) => {
-                        console.error('Speech recognition error:', event.error);
+                        console.error('Speech error:', event.error);
                         this.updateMicButton(false);
                     };
                 }
             }
 
-            async toggleRecording() {
+            toggleRecording() {
                 if (!this.recognition) {
-                    alert('Speech Recognition not supported in your browser');
+                    alert('Speech Recognition not supported');
                     return;
                 }
-
                 if (this.isRecording) {
                     this.recognition.stop();
                     this.isRecording = false;
-                    this.updateMicButton(false);
                 } else {
                     this.isRecording = true;
                     this.recognition.start();
@@ -611,53 +483,51 @@
 
             async handleUserInput(text) {
                 if (!text.trim()) return;
-
-                // Add user message to chat
                 this.addMessage(text, 'user');
-                
-                // Show typing indicator
                 this.showTyping();
-
-                try {
-                    // Get response from Claude
-                    const response = await this.getClaudeResponse(text);
-                    
-                    // Remove typing indicator
-                    this.removeTyping();
-                    
-                    // Add AI response
-                    this.addMessage(response, 'ai');
-                    
-                    // Speak the response
-                    this.speak(response);
-                    
-                } catch (error) {
-                    this.removeTyping();
-                    const errorMsg = 'Sorry, I encountered an error. Please try again.';
-                    this.addMessage(errorMsg, 'ai');
-                    console.error('Error:', error);
-                }
+                
+                const response = await this.getResponse(text);
+                this.removeTyping();
+                this.addMessage(response, 'ai');
+                this.speak(response);
             }
 
-            async getClaudeResponse(userMessage) {
-                // For now, return intelligent responses without external API
-                // This can be upgraded to use Anthropic API with your key
-                
-                const responses = {
-                    'hello': 'Greetings, scholar. How may ATLAS assist your NEET PG journey today?',
-                    'time': `The current time is ${new Date().toLocaleTimeString()}. Make it count in your studies!`,
-                    'help': 'I can help you with:\n• Medical knowledge questions\n• Study motivation\n• Current information searches\n• NEET PG exam tips\n\nWhat would you like to know?',
-                    'default': `That's an interesting question. Based on your NEET PG preparation, I'd recommend focusing on high-yield topics first. What specific area would you like to explore?`
-                };
-
-                const lowerMessage = userMessage.toLowerCase();
-                for (const [key, value] of Object.entries(responses)) {
-                    if (lowerMessage.includes(key)) {
-                        return value;
+            async getResponse(text) {
+                try {
+                    // Try Hugging Face API (free)
+                    const response = await fetch("https://api-inference.huggingface.co/models/gpt2", {
+                        headers: {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 },
+                        method: "POST",
+                        body: JSON.stringify({ inputs: text, parameters: { max_length: 100 } }),
+                    });
+                    
+                    if (response.ok) {
+                        const result = await response.json();
+                        if (result[0]?.generated_text) {
+                            let answer = result[0].generated_text.replace(text, '').trim();
+                            return answer || this.getBasicResponse(text);
+                        }
                     }
+                } catch (e) {
+                    console.log('API error, using basic response');
                 }
                 
-                return responses.default;
+                return this.getBasicResponse(text);
+            }
+
+            getBasicResponse(text) {
+                const lower = text.toLowerCase();
+                
+                // Smart pattern matching
+                if (lower.includes('hello') || lower.includes('hi')) return 'Hey there! What would you like to know?';
+                if (lower.includes('time')) return `Current time: ${new Date().toLocaleTimeString()}`;
+                if (lower.includes('what') && lower.includes('weather')) return 'I can\'t check weather, but you can use a weather app for that.';
+                if (lower.includes('who') || lower.includes('what') || lower.includes('how')) return `That's a great question! ${text}. Can you give me more context?`;
+                if (lower.includes('thank')) return 'You\'re welcome! Happy to help!';
+                if (lower.includes('joke')) return 'Why did the AI go to school? To improve its learning model! 😄';
+                if (lower.includes('help')) return 'I can answer questions about almost anything! Just ask me.';
+                
+                return `Interesting question about "${text}". Tell me more and I\'ll help you explore it!`;
             }
 
             addMessage(content, role) {
@@ -671,8 +541,6 @@
                 const contentEl = document.createElement('div');
                 contentEl.className = 'message-content';
                 contentEl.textContent = content;
-                contentEl.style.cursor = 'pointer';
-                contentEl.onclick = () => this.copyToClipboard(content);
 
                 if (role === 'user') {
                     messageEl.appendChild(contentEl);
@@ -685,7 +553,6 @@
                 this.chatContainer.appendChild(messageEl);
                 this.chatContainer.scrollTop = this.chatContainer.scrollHeight;
                 
-                // Save to history
                 this.chatHistory.push({ role, content, timestamp: new Date() });
                 this.saveChatHistory();
             }
@@ -715,28 +582,17 @@
             }
 
             speak(text) {
-                // Only use Web Speech API for TTS (free, no costs)
                 const utterance = new SpeechSynthesisUtterance(text);
                 utterance.rate = 1;
                 utterance.pitch = 1;
                 utterance.volume = 1;
                 
-                window.speechSynthesis.cancel(); // Cancel any ongoing speech
+                window.speechSynthesis.cancel();
                 window.speechSynthesis.speak(utterance);
             }
 
-            copyToClipboard(text) {
-                navigator.clipboard.writeText(text).then(() => {
-                    const feedback = document.createElement('div');
-                    feedback.className = 'copy-feedback';
-                    feedback.textContent = '✓ Copied to clipboard';
-                    document.body.appendChild(feedback);
-                    setTimeout(() => feedback.remove(), 3000);
-                });
-            }
-
             clearChat() {
-                if (confirm('Clear all chat history?')) {
+                if (confirm('Clear all conversations?')) {
                     this.chatHistory = [];
                     this.chatContainer.innerHTML = `
                         <div class="empty-state">
@@ -752,12 +608,7 @@
             }
 
             openSettings() {
-                const apiKey = prompt('Enter your Anthropic API Key (optional for basic features):', this.apiKey);
-                if (apiKey !== null) {
-                    this.apiKey = apiKey;
-                    localStorage.setItem('atlasApiKey', apiKey);
-                    alert('Settings saved!');
-                }
+                alert('⚙️ Settings: Chat history is saved locally on your device.');
             }
 
             saveChatHistory() {
@@ -768,21 +619,15 @@
                 const saved = localStorage.getItem('atlasChatHistory');
                 if (saved) {
                     this.chatHistory = JSON.parse(saved);
-                    // Display loaded history
                     if (this.chatHistory.length > 0) {
                         this.chatContainer.innerHTML = '';
-                        this.chatHistory.forEach(msg => {
-                            this.addMessage(msg.content, msg.role);
-                        });
+                        this.chatHistory.forEach(msg => this.addMessage(msg.content, msg.role));
                     }
                 }
             }
         }
 
-        // Initialize ATLAS on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            new ATLAS();
-        });
+        document.addEventListener('DOMContentLoaded', () => new ATLAS());
     </script>
 </body>
 </html>
